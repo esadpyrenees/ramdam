@@ -1,0 +1,100 @@
+@import url('http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700,400italic');
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+body {
+    padding: 60px;
+    font-size: 100%;
+    color: #333;
+    font-family: 'Roboto Condensed', sans-serif;
+    }
+
+a { color:#000;}    
+
+h1, h2, h3, h4 { margin: 1em 0 .5em; }
+ul, ol { margin: 0; list-style-type: none}
+
+
+h1#atelier { position:fixed; font-size: 14rem; margin: 0; color: rgb(255,255,100); line-height: .8}
+h1 { font-size: 1.4rem}
+h2 { font-size: 1.2rem}
+h3 { font-size: 1.2rem; border-left: 10px solid black; padding-left: 1em}
+h4 { font-size: 1rem }
+section.section { position: relative; padding-left: 50px; margin-bottom: 4em}
+h1.section-title{
+	text-align: right;
+	position: absolute;
+	color: black;
+	left: 0;
+	
+	padding-right: .85em;
+	text-transform: uppercase;
+	-webkit-transform-origin:0 0;
+	-webkit-transform:rotate(270deg) translateX(-100%);
+	-moz-transform-origin:0 0;
+	-moz-transform:rotate(270deg) translateX(-100%);
+	transform-origin:0 0;
+	transform:rotate(270deg) translateX(-100%);
+	}
+h2.section-subtitle { display: inline-block; background: #000; color: #fff; padding: 1px 6px; margin-top: 2em;}
+h2.section-subtitle + p { margin: 0em 0 .5em }
+
+h3 + p,
+h4 + p { margin-top: 0}
+
+section ul { margin-bottom: 2em}
+
+p,
+blockquote, ol, ul { max-width: 650px}
+
+pre code { overflow-x: auto;}
+p code {
+	background: #eee;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+	}
+
+
+
+.clearfix:after {
+  content:"";
+  display:table;
+  clear:both;
+}
+
+
+/* el highlighting */
+
+.el { position: relative; border: 3px solid black; padding: 20px 50px; background: white}
+.el:before, .el:after{
+	position: absolute;
+	background: black;
+	color: white;
+	font-size: .85rem;
+	}
+.el:before { top:0; left: 0; } 
+.el:after  { bottom:0; right: 0; } 
+	
+div.el:before { content: '<div>'}
+div.el:after { content: '</div>'}
+nav.el:before { content: '<nav>'}
+nav.el:after { content: '</nav>'}
+section.el:before { content: '<section>'}
+section.el:after { content: '</section>'}
+article.el:before { content: '<article>'}
+article.el:after { content: '</article>'}
+p.el:before { content: '<p>'}
+p.el:after { content: '</p>'}
+
+div.el.box:before { content: '<div class="box">'}
+div.el.col:before { content: '<div class="col">'}
+
+span.el:before { content: '<span>'}
+span.el:after { content: '</span>'}
+	span.el { padding: 0; line-height: 1; display: inline-block; line-height: 1}
+	span.el:before, span.el:after { position: static; }
+	span.el:before { margin-right: .25em} span.el:after { margin-left: .25em}
+
+.el p { max-width: 600px}
+.el.no-padding { padding: 0}
+.el.no-label:before, .el.no-label:after { display: none; }

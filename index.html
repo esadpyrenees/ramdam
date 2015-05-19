@@ -1,0 +1,270 @@
+	<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        
+        <title>ÉSA Pyrénées — Atelier web</title>
+
+        
+		<meta charset="utf-8">
+        <link rel="shortcut icon" type="image/ico" href="assets/img/favicon.ico">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<link rel="stylesheet" href="assets/css/main.css">
+		<link rel="stylesheet" href="assets/highlight/styles/pojoaque.css">
+		
+		<script src="assets/js/vendor/modernizr-2.6.2.min.js" type="text/javascript" ></script>
+		<script src="assets/highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+        
+        <script>document.esa_id_options = { 'family' : 'Arial,sans-serif', 'size' : '15px'}</script>
+
+    </head>
+    <body>
+        
+        <section class="section">
+            <h1 class="section-title">ramdam / random</h1>
+            <h2 class="section-subtitle">Introduction à javascript</h2>
+            <p>
+                Les tags <code>&lt;script&gt;</code> peuvent être insérés où l’on veut dans une page. Il est cependant préférable de les inclure juste avant la fermetuire de la balise body (<code>&lt;/body&gt;</code>), pour accélérer le chargement de la page.                
+            </p>
+            <p>
+                Le code javascript peut être écrit directement à l’intérieur des balises <code>&lt;script&gt;</code> d’une page HTML, ou être inclus via un fichier externe <code>&lt;script src="fichier.js"&gt;&lt;/script&gt;</code>.
+                
+            </p>
+            
+            <h3>display:block</h3>
+            <div class="el">
+                <p>L’élément <code>&lt;div&gt;</code> est l’élément le plus courant pour <i>div</i>iser les pages en zones et permettre la mise en page de ces zones. Par défaut, l’élément <code>&lt;div&gt;</code> a la valeur <code>display:block</code>, tout comme les éléments <code>&lt;p&gt;</code>, <code>&lt;blockquote&gt;</code> (pour les citations), <code>&lt;form&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;article&gt;</code> ou  <code>&lt;section&gt;</code>.</p>
+                <p>Tant qu’on ne leur a pas affecté de largeur, les éléments dont la propriété <code>display</code> est <code>block</code> prennent toute la largeur disponible, et s’empilent verticalement dans la page.</p>
+            </div>
+
+            <h3>display:inline</h3>
+            <p>
+                Les éléments inline n’interompent pas le flux du texte ; ils s’insèrent dans celui-ci tel ce <span class="el"><code>span</code></span>. Les principaux éléments inline sont <code>&lt;a&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>. À l’usage de <code>&lt;b&gt;</code> ou <code>&lt;i&gt;</code> pour produire du gras ou de l’italique, il faut généralement préférer <code>&lt;strong&gt;</code> et <code>&lt;em&gt;</code>. Quand à l’élément <code>&lt;u&gt;</code>, permettant de souligner, il est généralement à proscrire : le soulignement étant la norme la plus fréquemment adoptée pour les liens.
+            </p>
+
+             <h3>display:inline-block</h3>
+             <p>
+                <code>inline-block</code> est une valeur qui peut être utilisée pour la mise en page de colonnes et de blocs juxtaposés les uns aux autres, comme nous le verrons plus loin. Mais son usage le plus courant est celui des images. C’est effectivement la propriété par défaut de l’élément <code>&lt;img&gt;</code>.
+             </p>
+             <div class="el">
+                <p>
+                    <img src="assets/img/pages--mise-en-page--img.gif" alt="">
+                    L’élément <code>&lt;img&gt;</code> est par défaut aligné sur la ligne de base du texte qui l’entoure, à moins que sa propriété <code>vertical-align</code> ne soit modifiée, ou que ne lui soit affectée la propriété <code>display:block</code>.</p>
+            </div>
+
+            <h3>display:none</h3>
+             <p>
+                La valeur <code>none</code> permet de masquer totalement un élément, en rendant inopérantes ses valeurs de <code>height</code>, <code>width</code>, <code>margin</code> ou <code>padding</code>. Différement, la propriété <code>visibility:hidden</code> masque l’élément en préservant la place prise par l’élément dans la mise en page.
+             </p>
+        </section>        
+
+        <!-- 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        -->
+
+
+        <section class="section">
+            <h1 class="section-title">02</h1>
+            <h2 class="section-subtitle">Width &amp; max-width</h2>
+            <p>
+                Affecter une largeur à un élément block est la première étape vers un contrôle de la mise en page. 
+            </p>
+            <pre class="langage-css"><code>#large {
+    width: 500px;
+}</code></pre>
+            <div class="el" style="width:500px; ">
+                <p><code>&lt;div id="large"&gt;</code></p>
+            </div>
+            <p>
+                Pour centrer cet élément au sein de son élément parent, on peut lui affecter des valeurs de marges <code>auto</code> pour ses marges supérieures et inférieures. 
+            </p>
+            <pre class="langage-css"><code>#centre {
+    width: 500px;
+    margin: 0 auto; 
+}</code></pre>
+            <div class="el" style="width:500px; margin:0 auto">
+                <p><code>&lt;div id="centre"&gt;</code></p>
+            </div>
+
+            <p>
+                Les valeurs de <code>margin</code> (ainsi que celle de <code>padding</code>, la marge interne des éléments) peuvent se noter de manière étendue ou abrégée. En utilisant la notation abrégée, l’ordre des valeurs est celui des aiguilles d’une montre : <code>top</code>, <code>right</code>, <code>bottom</code> et <code>left</code>. Les exemples ci-dessous illustrent les différentes manières d’affecter des marges :
+            </p>
+            <pre class="langage-css"><code>#marges-etendues {
+    margin-top:0;
+    margin-right:auto;
+    margin-bottom:0;
+    margin-left:auto;
+}
+#marges-abregees {
+    /* la valeur de margin-left sera la même que margin-right */
+    /* la valeur de margin-top sera la même que margin-bottom */
+    /* ces valeurs sont équivalentes à celles de #marges-etendues */
+    margin:0 auto;
+}
+#marges-raccourcies {
+    /* la valeur de margin-left sera la même que margin-right */
+    margin:0 auto 20px;
+}
+#pas-de-marges {
+    margin:0;
+}</code></pre>
+            <p>
+                Si l’on veut éviter l’apparition d’une <i>scrollbar</i> horizontale pour les écrans dont la largeur serait inférieure à la largeur souhaitée pour le <code>&lt;div&gt;</code>, il est préférable d’utiliser la propriété <code>max-width</code>.
+            </p>
+            <pre class="langage-css"><code>#centre-responsive {
+    max-width: 500px;
+    margin: 0 auto; 
+}</code></pre>
+            <div class="el" style="max-width:500px; margin:0 auto">
+                <p><code>&lt;div id="centre-responsive"&gt;</code></p>
+            </div>
+
+            <p>
+                <strong>Attention !</strong> Pour manipuler les propriétés <code>width</code>, <code>height</code>, <code>max-width</code> et <code>max-height</code>, il convient de maîtriser le « <a href="/exemples/boxmodel">modèle de boite</a> » ou de copier / coller la ligne ci-dessous au départ de tous vos fichiers CSS :
+            </p>
+            <pre><code class="language-css">* { box-sizing: border-box; }</code></pre>
+
+        </section>
+
+        <!-- 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        -->
+
+        <section class="section">
+            <h1 class="section-title">03</h1>
+            <h2 class="section-subtitle">Positions</h2>
+
+            <p>
+                Le mot-clé <code>position</code> en CSS est un faux-ami. Sa valeur permet de définir le comportement de mise en page d’un élément au sein de la page et sa relation aux éléments qui l’entourent (éléments parents, enfants et frères (<i>siblings</i>).
+            </p>
+            <h3>Static</h3>
+            <p>
+                Par défaut (tant qu’on ne l’a pas modifiée), la <code>position</code> d’un élément est <code>static</code>. 
+            </p>
+            <pre class="langage-css"><code>#static {
+    position:static; 
+}</code></pre>
+            <p>
+                On dit d’un élément auquel est affecté une <code>position</code> autre que <code>static</code> qu’il est <em>positionné</em>.
+            </p>
+            <h3>Fixed</h3>
+            <p>
+                La position <code>fixed</code> permet de définir la position d’un élément par rapprort au <i>viewport</i>, l’espace visible de la fenêtre du navigateur.
+                Il permet d’utiliser les propriétés <code>top</code>, <code>right</code>, <code>bottom</code> ou <code>left</code>. Voici le code qui correspond au carré noir en bas de page :
+            </p>
+            <pre><code class="langage-css">#fixed {
+  position: fixed;
+  bottom: 10px; 
+  left: 10px; 
+  width: 20px; 
+  height:20px; 
+  background:black;
+}</code></pre>
+            <div style="position: fixed; bottom: 10px; left: 10px; width: 20px; height:20px; background:black"></div>
+            <p>
+                Bien que particulièrement utile, cette position n’est que très partiellement supportée par les navigateurs mobiles.
+            </p>
+
+            <h3>Relative</h3>
+            <p>
+                La valeur <code>relative</code> est un outil très puissant pour la mise en page. Elle permet plusieurs comportements : <br>                
+            </p>
+            <p>
+                • Sans autre règle, la position relative semble être strictement identique au positionnement <code>static</code>.
+            </p>
+            <p>
+                • La position de l’élément peut être modifiée par les propriétés <code>top</code>, <code>right</code>, <code>bottom</code> ou <code>left</code> <strong>relativement</strong> à sa position d’origine.
+            </p>
+            <div style="padding-bottom:25px">
+                <div class="el no-padding">
+                    <article class="el " style="position:relative; left:-40px; top:25px;">
+                            <pre style="margin:0"><code class="language-css">div { 
+    position:relative;
+    left:-40px;
+    top:25px;
+}</code></pre>       
+                    </article>
+                </div>
+            </div>
+            <p>
+                • Cette modification du positionnement préserve l’impact initial de l’élément sur ses éléments parents et frères. 
+                Ainsi, le <code>&lt;div class="el-2"&gt;</code> est affecté par la taille <strong>initiale</strong> de l'élément <code>&lt;div class="el-1"&gt;</code> après lequel il est placé.
+            </p>
+        
+            <section class="el clearfix" style="overflow:auto">
+                <div class="el " style="position:relative; left:70px; width:300px; float:left;"> 
+                    <pre ><code class="language-css">.el-1 { 
+        position:relative;
+        left:70px;
+        width:300px;
+        float:left;
+    }</code></pre>       
+                        
+                </div>
+                <div class="el " style="width:300px; float:left;"> 
+                    <pre ><code class="language-css">.el-2 { 
+        width:300px;
+        float:left;
+    }</code></pre>       
+                        
+                </div>
+            </section>
+            
+            <p>
+                • La position <code>relative</code> créee également un nouveau référenciel de positionnement pour les éléments positionnés en <code>absolute</code> :
+            </p>
+
+            <h3>Absolute</h3>
+
+            <p>
+                La position <code>absolute</code> permet de positionner un élément en supprimant l’impact qu’il a sur ses autres éléments parents et frères. L’élément positionné par le code CSS suivant se trouve tout en haut de la page.
+            </p>
+            <pre ><code class="language-css">#absolute { 
+    position:absolute;
+    top: 20px; 
+    right: 20px; 
+    width: 20px; 
+    height:20px; 
+    background:black;
+}</code></pre> 
+            <p>
+                Cette position s’établit en effet <em>par rapport au document</em> ou au premier élément parent dont la position est relative.
+            </p>
+
+            <div class="el box" style="position:relative">
+                <div style="position:absolute;
+    top: 20px; 
+    right: 20px; 
+    width: 20px; 
+    height:20px; 
+    background:red;"></div>
+                <pre ><code class="language-css">.box {
+    position:relative
+}
+#absolute-2 { 
+    position:absolute;
+    top: 20px; 
+    right: 20px; 
+    width: 20px; 
+    height:20px; 
+    background:red;
+}</code></pre> 
+            </div>
+        </section>
+
+        <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <script src="assets/js/jquery.cycle.js"></script>
+    <script src="assets/js/jquery.masonry.js"></script>
+    <script src="assets/js/esa.js" ></script>
+    <script src="assets/js/scripts.js"></script>
+
+
+    </body>
+</html>
