@@ -18,7 +18,7 @@
 		<script src="assets/highlight/highlight.pack.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
         
-        <script>document.esa_id_options = { 'family' : '"Roboto Condensed",sans-serif,sans-serif', 'size' : '20px', 'color': 'rgba(0,0,0,.6)'}</script>
+        <script>document.esa_id_options = { 'family' : '"Roboto Condensed",sans-serif,sans-serif', 'size' : '20px', 'color': 'rgba(0,0,0,0)'}</script>
 
         <style type="text/css">
         #ramdam { position: relative; }
@@ -188,7 +188,7 @@ torchons = 6;
 // une variable a comme immense intérêt qu’elle peut varier 
 // ici, on assigne à la variable torchons une nouvelle valeur
 console.log(torchons + serviettes);
-// affiche 10 dans la console 
+// affiche 8 dans la console 
 console.log("torchons" + serviettes);
 // affiche "torchons2" dans la console 
 // si l’on peut effectivement aditionner des torchons et des serviettes, 
@@ -272,11 +272,11 @@ while (i &lt; 10) {
     // on "incrémente" la variable i (= on lui ajoute 1)
     console.log(i);
 }
-// i vaut maintenant 10</code></pre>
+// i ne vaut rien du tout</code></pre>
             </p>
             <p><code>i++</code> est equivalent à <code>i = i + 1</code>.</p>
 
-            <h2 class="section-subtitle">Focntions</h2>
+            <h2 class="section-subtitle">Fonctions</h2>
             <p>
                 Les fonction sont les “verbes” du javascript ; elles permettent de <strong>faire des choses</strong>. Il faut tout d’abord les déclarer, grâce au mot-clé <code>function</code>, suivi de parenthèses (qui permettront de transmettre des paramètres à la fonction) et d’accolades (qui contiennent le code à exétuter).
                 Puis, une fois délarée, on peut l’invoquer.
@@ -408,6 +408,50 @@ choses_a_faire.pop();
                 La suite de cette introduction utilisera extensivement le framework jQuery ; mais il est capital de comprendre que jQuery, développé en javascript, <strong>est</strong> du javascript.
                 jQuery nous servira à manipuler des variables, des objets, des tableaux, etc. et à interagir avec le DOM.
             </p>
+            <h3>Events et callbacks</h3>
+            <p>
+                Dans notre code javascript, la plupart des instructions seront soumises à des <strong>événements</strong>. Ces évenements peuvent être le chargement de la page ou d’une image, un clic ou une action tactile de l’utilisateur, ou des quantités d’autres. En javascript, beaucoup d’objets sont dits “event-emitters”, ils recçoivent et envoient des événements.
+                <pre class="langage-js"><code>var faisQuelqueChose = function (event) {
+    // fais quelque chose
+};
+var bouton = document.querySelector('#bouton');
+bouton.addEventListener('click', faisQuelqueChose);</code></pre>
+            </p>
+            <p>
+                Avec jQuery, les deux lignes ci-dessus peuvent s’écrire :
+                <pre class="langage-js"><code>$('#bouton').on('click', faisQuelqueChose);</code></pre>
+                jQuery possède une fonction maîtresse au nom très court : <code>$</code>. Cette fonction très puissante permet ici à jQuery de sélectionner l’élément dont l’<code>id</code> est “bouton”, de lui attacher un écouteur sur l’événement <code>click</code>, et d’exécuter la fonction <code>faisQuelqueChose</code> quand on clique dessus.<br>
+                NB: <code>id="machin"</code> en HTML se traduit <code>#machin</code> en css.
+            </p>
+            <h3>jQuery DOM API</h3>
+            <p>
+                Grâce à une syntaxe semblables aux sélecteurs utilisés en CSS, jQuery peut <strong>sélectionner</strong> un élément de la page et le <strong>manipuler</strong> (changer son style, ses attributs, son contenu…).<br>
+                <pre class="langage-js"><code>$('#grosbouton').css('font-size', '30px');    </code></pre>
+            </p>
+            <p>
+                Les istructions peuvent être enchaînées :
+                <pre class="langage-js"><code>$('#grosbouton').css('font-size', '30px').height(100);    </code></pre>
+            </p>
+            <p>
+                La syntaxe se comporte comme une phrase : — “Eh, toi, le gros bouton, quand on te clique dessus, devient rouge” :
+                <pre class="langage-js"><code>$('#grosbouton').on('click', function(){
+    $(this).css('color', 'red');
+});</code></pre>
+                Ici, on a introduit deux notions importantes : le mot clé <strong><code>this</code></strong> et une <strong>fonction anonyme</strong>. Le mot <code>this</code> désigne l’élément sur lequel on a cliqué ; la fonction anonyme ne sert pas ailleurs dans notre code ; on peut donc la déclarer au même instant qu’on l’exécute.
+            </p>
+            <h4>Getters et Setters</h4>
+            <p>
+                Ci dessus, nous avons utilisé les méthodes <code>.css</code> et <code>.height</code> pour <strong>attribuer</strong> des valeurs css et une hauteur à notre bouton. Ces méthodes peuvent également être utilisées pour <strong>lire</strong> ces valeurs css et de hauteur. Elles sont alors invoquées sans l’argument d’attribution :
+                <pre class="langage-js"><code>$('#grosbouton').css('font-size');
+// retourne '30px'
+$('#grosbouton').height();
+// retourne '100px'
+$('#grosbouton').height(200);
+// change la hauteur du bouton à 200px
+$('#grosbouton').height();
+// retourne maintenant '200px'</code></pre>
+            </p>
+            
         </section>
 
         <section class="section">
