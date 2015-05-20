@@ -18,251 +18,505 @@
 		<script src="assets/highlight/highlight.pack.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
         
-        <script>document.esa_id_options = { 'family' : 'Arial,sans-serif', 'size' : '15px'}</script>
+        <script>document.esa_id_options = { 'family' : '"Roboto Condensed",sans-serif,sans-serif', 'size' : '20px', 'color': 'rgba(0,0,0,.6)'}</script>
 
+        <style type="text/css">
+        #ramdam { position: relative; }
+        #ramdam span { 
+            position: relative;
+            font-size: 200px; font-weight: bold; color: black; line-height: .8;
+            transition:all 200ms ease-out;
+            display: inline-block;
+            opacity: 0;
+        }
+        
+        #ramdam span.brbrbr {
+            opacity: 1;
+            animation: brbrbrbr linear .2s;
+            animation-iteration-count: infinite;
+            transform-origin: 50% 50%;
+            }
+        
+        @keyframes brbrbrbr {
+            0%    { transform:  translate(0px,0px) }
+            33%   { transform:  translate(1px,0px) }
+            66%  { transform:  translate(-1px,0px) }
+            }
+
+
+        </style>
     </head>
     <body>
+
+        <section >
+            <div id="ramdam" >RANDOM/RAMDAM</div>                
+        </section>
         
         <section class="section">
             <h1 class="section-title">ramdam / random</h1>
-            <h2 class="section-subtitle">Introduction à javascript</h2>
+            <h2 class="section-subtitle">Préambule</h2>
             <p>
-                Les tags <code>&lt;script&gt;</code> peuvent être insérés où l’on veut dans une page. Il est cependant préférable de les inclure juste avant la fermetuire de la balise body (<code>&lt;/body&gt;</code>), pour accélérer le chargement de la page.                
+                Le code du temps fort est accessible ici : <a href="https://github.com/jbidoret/ramdam/">https://github.com/jbidoret/ramdam/</a>
             </p>
             <p>
-                Le code javascript peut être écrit directement à l’intérieur des balises <code>&lt;script&gt;</code> d’une page HTML, ou être inclus via un fichier externe <code>&lt;script src="fichier.js"&gt;&lt;/script&gt;</code>.
-                
+                Pour le télécharger en gardant la capacité de le modifier <i>et</i> de le mettre à jour, ouvrir le Terminal (/Applications/Utilitaires/Terminal.app), puis avec <a href="https://git-scm.com/book/fr/v1/D%C3%A9marrage-rapide"><strong>git</strong></a>, clonez le dossier contenant le code sur votre ordinateur :
             </p>
-            
-            <h3>display:block</h3>
-            <div class="el">
-                <p>L’élément <code>&lt;div&gt;</code> est l’élément le plus courant pour <i>div</i>iser les pages en zones et permettre la mise en page de ces zones. Par défaut, l’élément <code>&lt;div&gt;</code> a la valeur <code>display:block</code>, tout comme les éléments <code>&lt;p&gt;</code>, <code>&lt;blockquote&gt;</code> (pour les citations), <code>&lt;form&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;article&gt;</code> ou  <code>&lt;section&gt;</code>.</p>
-                <p>Tant qu’on ne leur a pas affecté de largeur, les éléments dont la propriété <code>display</code> est <code>block</code> prennent toute la largeur disponible, et s’empilent verticalement dans la page.</p>
-            </div>
-
-            <h3>display:inline</h3>
             <p>
-                Les éléments inline n’interompent pas le flux du texte ; ils s’insèrent dans celui-ci tel ce <span class="el"><code>span</code></span>. Les principaux éléments inline sont <code>&lt;a&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>. À l’usage de <code>&lt;b&gt;</code> ou <code>&lt;i&gt;</code> pour produire du gras ou de l’italique, il faut généralement préférer <code>&lt;strong&gt;</code> et <code>&lt;em&gt;</code>. Quand à l’élément <code>&lt;u&gt;</code>, permettant de souligner, il est généralement à proscrire : le soulignement étant la norme la plus fréquemment adoptée pour les liens.
+                <pre class="langage-bash"><code># cd pour *change directory* : change le dossier de travail du terminal vers '~/Desktop' (le Bureau de l'utilisateur courant) + [Entrée]
+cd ~/Desktop 
+
+# télécharge en les clonant les fichiers
+git clone https://github.com/jbidoret/ramdam/ 
+
+# change le dossier de travail du terminal vers '~/Desktop/ramdam' 
+cd ramdam 
+
+# affiche dans le Finder le dossier téléchargé
+open . </code></pre>
             </p>
-
-             <h3>display:inline-block</h3>
-             <p>
-                <code>inline-block</code> est une valeur qui peut être utilisée pour la mise en page de colonnes et de blocs juxtaposés les uns aux autres, comme nous le verrons plus loin. Mais son usage le plus courant est celui des images. C’est effectivement la propriété par défaut de l’élément <code>&lt;img&gt;</code>.
-             </p>
-             <div class="el">
-                <p>
-                    <img src="assets/img/pages--mise-en-page--img.gif" alt="">
-                    L’élément <code>&lt;img&gt;</code> est par défaut aligné sur la ligne de base du texte qui l’entoure, à moins que sa propriété <code>vertical-align</code> ne soit modifiée, ou que ne lui soit affectée la propriété <code>display:block</code>.</p>
-            </div>
-
-            <h3>display:none</h3>
-             <p>
-                La valeur <code>none</code> permet de masquer totalement un élément, en rendant inopérantes ses valeurs de <code>height</code>, <code>width</code>, <code>margin</code> ou <code>padding</code>. Différement, la propriété <code>visibility:hidden</code> masque l’élément en préservant la place prise par l’élément dans la mise en page.
-             </p>
-        </section>        
-
-        <!-- 
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        -->
-
-
-        <section class="section">
-            <h1 class="section-title">02</h1>
-            <h2 class="section-subtitle">Width &amp; max-width</h2>
             <p>
-                Affecter une largeur à un élément block est la première étape vers un contrôle de la mise en page. 
+                Sur Windows, on peut exécuter git en installant <a href="http://msysgit.github.io/">msysgit</a>.
             </p>
-            <pre class="langage-css"><code>#large {
-    width: 500px;
-}</code></pre>
-            <div class="el" style="width:500px; ">
-                <p><code>&lt;div id="large"&gt;</code></p>
-            </div>
             <p>
-                Pour centrer cet élément au sein de son élément parent, on peut lui affecter des valeurs de marges <code>auto</code> pour ses marges supérieures et inférieures. 
+                Pour mettre à jour les fichiers, dans le Terminal, toujours dans le même dossier, taper : <code langage="shell">git pull</code>
             </p>
-            <pre class="langage-css"><code>#centre {
-    width: 500px;
-    margin: 0 auto; 
-}</code></pre>
-            <div class="el" style="width:500px; margin:0 auto">
-                <p><code>&lt;div id="centre"&gt;</code></p>
-            </div>
 
-            <p>
-                Les valeurs de <code>margin</code> (ainsi que celle de <code>padding</code>, la marge interne des éléments) peuvent se noter de manière étendue ou abrégée. En utilisant la notation abrégée, l’ordre des valeurs est celui des aiguilles d’une montre : <code>top</code>, <code>right</code>, <code>bottom</code> et <code>left</code>. Les exemples ci-dessous illustrent les différentes manières d’affecter des marges :
-            </p>
-            <pre class="langage-css"><code>#marges-etendues {
-    margin-top:0;
-    margin-right:auto;
-    margin-bottom:0;
-    margin-left:auto;
-}
-#marges-abregees {
-    /* la valeur de margin-left sera la même que margin-right */
-    /* la valeur de margin-top sera la même que margin-bottom */
-    /* ces valeurs sont équivalentes à celles de #marges-etendues */
-    margin:0 auto;
-}
-#marges-raccourcies {
-    /* la valeur de margin-left sera la même que margin-right */
-    margin:0 auto 20px;
-}
-#pas-de-marges {
-    margin:0;
-}</code></pre>
-            <p>
-                Si l’on veut éviter l’apparition d’une <i>scrollbar</i> horizontale pour les écrans dont la largeur serait inférieure à la largeur souhaitée pour le <code>&lt;div&gt;</code>, il est préférable d’utiliser la propriété <code>max-width</code>.
-            </p>
-            <pre class="langage-css"><code>#centre-responsive {
-    max-width: 500px;
-    margin: 0 auto; 
-}</code></pre>
-            <div class="el" style="max-width:500px; margin:0 auto">
-                <p><code>&lt;div id="centre-responsive"&gt;</code></p>
-            </div>
-
-            <p>
-                <strong>Attention !</strong> Pour manipuler les propriétés <code>width</code>, <code>height</code>, <code>max-width</code> et <code>max-height</code>, il convient de maîtriser le « <a href="/exemples/boxmodel">modèle de boite</a> » ou de copier / coller la ligne ci-dessous au départ de tous vos fichiers CSS :
-            </p>
-            <pre><code class="language-css">* { box-sizing: border-box; }</code></pre>
-
+            <h2 class="section-subtitle">
+                Ressources
+            </h2>
+            <ul>
+                <li><a href="http://ateliers.esapyrenees.fr/web">ateliers.esapyrenees.fr/web</a></li>
+                <li><a href="http://api.jquery.com/">api.jquery.com</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">Mozilla developper network</a></li>
+            </ul>
         </section>
 
-        <!-- 
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        -->
-
-        <section class="section">
-            <h1 class="section-title">03</h1>
-            <h2 class="section-subtitle">Positions</h2>
-
-            <p>
-                Le mot-clé <code>position</code> en CSS est un faux-ami. Sa valeur permet de définir le comportement de mise en page d’un élément au sein de la page et sa relation aux éléments qui l’entourent (éléments parents, enfants et frères (<i>siblings</i>).
-            </p>
-            <h3>Static</h3>
-            <p>
-                Par défaut (tant qu’on ne l’a pas modifiée), la <code>position</code> d’un élément est <code>static</code>. 
-            </p>
-            <pre class="langage-css"><code>#static {
-    position:static; 
-}</code></pre>
-            <p>
-                On dit d’un élément auquel est affecté une <code>position</code> autre que <code>static</code> qu’il est <em>positionné</em>.
-            </p>
-            <h3>Fixed</h3>
-            <p>
-                La position <code>fixed</code> permet de définir la position d’un élément par rapprort au <i>viewport</i>, l’espace visible de la fenêtre du navigateur.
-                Il permet d’utiliser les propriétés <code>top</code>, <code>right</code>, <code>bottom</code> ou <code>left</code>. Voici le code qui correspond au carré noir en bas de page :
-            </p>
-            <pre><code class="langage-css">#fixed {
-  position: fixed;
-  bottom: 10px; 
-  left: 10px; 
-  width: 20px; 
-  height:20px; 
-  background:black;
-}</code></pre>
-            <div style="position: fixed; bottom: 10px; left: 10px; width: 20px; height:20px; background:black"></div>
-            <p>
-                Bien que particulièrement utile, cette position n’est que très partiellement supportée par les navigateurs mobiles.
-            </p>
-
-            <h3>Relative</h3>
-            <p>
-                La valeur <code>relative</code> est un outil très puissant pour la mise en page. Elle permet plusieurs comportements : <br>                
-            </p>
-            <p>
-                • Sans autre règle, la position relative semble être strictement identique au positionnement <code>static</code>.
-            </p>
-            <p>
-                • La position de l’élément peut être modifiée par les propriétés <code>top</code>, <code>right</code>, <code>bottom</code> ou <code>left</code> <strong>relativement</strong> à sa position d’origine.
-            </p>
-            <div style="padding-bottom:25px">
-                <div class="el no-padding">
-                    <article class="el " style="position:relative; left:-40px; top:25px;">
-                            <pre style="margin:0"><code class="language-css">div { 
-    position:relative;
-    left:-40px;
-    top:25px;
-}</code></pre>       
-                    </article>
-                </div>
-            </div>
-            <p>
-                • Cette modification du positionnement préserve l’impact initial de l’élément sur ses éléments parents et frères. 
-                Ainsi, le <code>&lt;div class="el-2"&gt;</code> est affecté par la taille <strong>initiale</strong> de l'élément <code>&lt;div class="el-1"&gt;</code> après lequel il est placé.
-            </p>
         
-            <section class="el clearfix" style="overflow:auto">
-                <div class="el " style="position:relative; left:70px; width:300px; float:left;"> 
-                    <pre ><code class="language-css">.el-1 { 
-        position:relative;
-        left:70px;
-        width:300px;
-        float:left;
-    }</code></pre>       
-                        
-                </div>
-                <div class="el " style="width:300px; float:left;"> 
-                    <pre ><code class="language-css">.el-2 { 
-        width:300px;
-        float:left;
-    }</code></pre>       
-                        
-                </div>
-            </section>
+
+        <section class="section">
+            <h1 class="section-title">Javascript</h1>
+            <h2 class="section-subtitle">
+                Introduction
+            </h2>
+            <h3>Inclure un script dans une page</h3>
+            <p>
+                Le code javascript peut être écrit directement à l’intérieur des balises <code>&lt;script&gt;</code> d’une page HTML, ou être inclus via un fichier externe.
+                Un navigateur lit le contenu d’un script de bas en haut (sauf si on lui demande de faire autrement).                
+            </p>
+            <p>
+                En interne :
+                <pre class="langage-html"><code>&lt;script&gt;
+    alert("Salut, tout le monde.");
+&lt;/script&gt;</code></pre>
+            </p>
+            <p>
+                En externe :
+                <pre class="langage-html"><code>&lt;script src="fichier.js"&gt;&lt;/script&gt;</code></pre>
+                Attention au chemin d’accès au fichier !
+            </p>
+            <p class="exemple">
+                <a href="exemples/00/">00</a>
+            </p>
+            <h3>La console</h3>
+            <p>
+                Les navigateurs modernes disposent d’une console javascript, qui est un outil indispensable, à la fois pour résoudre des erreurs, et pour essayer des lignes de code.
+            </p>
+            <p>
+                Ouvrir la console (⌥⌘I dans Firefox, Safari ou Chrome ; dans Safari, il est nécessaire d’activer l’inspecteur Web en cochant la case “Afficher le menu Développement” dans le menu Safari > Préférences > Avancées), atteindre la console et taper <code>alert("Salut, tout le monde.");</code>.
+            </p>
+            <p>
+                On peut utiliser la console depuis le code javascript : <code>console.log("Salut, tout le monde.");</code>.  
+            </p>
+            <p class="exemple">
+                <a href="exemples/01/">01</a>
+            </p>
             
+            <h2 class="section-subtitle">Variables</h2>
             <p>
-                • La position <code>relative</code> créee également un nouveau référenciel de positionnement pour les éléments positionnés en <code>absolute</code> :
+                Une <strong>variable</strong> est composée d’un <strong>nom</strong> et d’une <strong>valeur</strong>. Pour la déclarer, il faut utiliser le mot clé <code>var</code>. Pour lui attribuer une valeur, il faut utiliser le signe <code>=</code> ; et terminer la ligne par un <code>;</code> :
+                <pre class="langage-js"><code>var nom = valeur;</code></pre>
+                Une variable peut être <i>déclarée</i>, tout en n’étant pas <i>initialisée</i>. Une fois crée, on peut l’initialiser :
+                <pre class="langage-js"><code>var nom;
+nom = valeur;</code></pre>
+            </p>
+            <h3>Valeurs</h3>
+            <p>
+                Dans javascript, une variable est dite "typée dynamiquement". On ne sait pas à priori si elle contient un nombre, une liste (ou <i>tableau</i>), une fonction, un “objet” ou autre chose…
+            </p>
+            <p>
+                Les valeurs simples sont : <code>number</code>, un nombre ; <code>string</code>, une chaîne de caractères ; un <code>boolean</code>, sorte d’interrupteur qui n’a que deux valeurs possibles (<code class="langage-js">true</code> ou <code class="langage-js">false</code>). On trouve également <code>null</code> et <code>undefined</code>.
+                <pre class="langage-js"><code>var ma_chaine = "Hifi"; 
+// Une chaîne de caractères se place entre guillemets (droits, doubles ou simples)
+var mon_nombre = 20; 
+// un nombre n’a pas de guillements
+var mon_autre_nombre = 17 + 3; 
+// Javascript sait faire des maths… 
+var javascript_cest_facile = true; 
+// n’est-ce-pas ?</code></pre>
+            </p>
+            <p>
+                Des valeurs plus complexes existent : ce sont les mystérieux <strong>objets</strong>, dont on parlera plus tard #oupas ;  les <strong>tableaux</strong>, qui servent à faire des listes ; et les <strong>fonctions</strong>, qui servent à …faire des trucs, et dont on parlera vraiment plus tard.
+                <pre class="langage-js"><code>var mon_objet = {}; 
+var ma_liste = ['pierre', 'papier', 'ciseaux'];
+var ma_fonction = function(){
+    // fera quelque chose plus tard
+}</code></pre>
+            </p>
+            <p>
+                En passant, on aura remarqué que l’on peut inscrire des commentaires dans du code javascript.
+                <pre class="langage-js"><code>// sur une seule ligne
+
+/*
+    ou sur 
+    plusieurs
+    lignes
+*/</code></pre>
             </p>
 
-            <h3>Absolute</h3>
-
+            <h3>Maths</h3>
             <p>
-                La position <code>absolute</code> permet de positionner un élément en supprimant l’impact qu’il a sur ses autres éléments parents et frères. L’élément positionné par le code CSS suivant se trouve tout en haut de la page.
-            </p>
-            <pre ><code class="language-css">#absolute { 
-    position:absolute;
-    top: 20px; 
-    right: 20px; 
-    width: 20px; 
-    height:20px; 
-    background:black;
-}</code></pre> 
-            <p>
-                Cette position s’établit en effet <em>par rapport au document</em> ou au premier élément parent dont la position est relative.
+                Oui, Javascript peut faire des additions, des divisions, des multiplications, des soustractions et quantité d’autres opérations sur les nombres qui nous seront fort utiles plus tard.
+                <pre class="langage-js"><code>var torchons = 4; 
+var serviettes = 2; 
+// ou
+var torchons = 4, 
+    serviettes = 2;
+// les deux notations ci-dessus sont équivalentes
+console.log(torchons + serviettes);
+// affiche 6 dans la console 
+torchons = 6;
+// une variable a comme immense intérêt qu’elle peut varier 
+// ici, on assigne à la variable torchons une nouvelle valeur
+console.log(torchons + serviettes);
+// affiche 10 dans la console 
+console.log("torchons" + serviettes);
+// affiche "torchons2" dans la console 
+// si l’on peut effectivement aditionner des torchons et des serviettes, 
+// l’adition de variables de type différent provoque parfois des résultats innatendus
+console.log( torchons / serviettes);
+// affiche "3" dans la console (6 divisé par 2, vous suivez ?)
+console.log( "torchons" * serviettes);
+// affiche NaN, ou Not a Number ; on ne peut pas diviser une chaine de caractères par un nombre</code></pre>
             </p>
 
-            <div class="el box" style="position:relative">
-                <div style="position:absolute;
-    top: 20px; 
-    right: 20px; 
-    width: 20px; 
-    height:20px; 
-    background:red;"></div>
-                <pre ><code class="language-css">.box {
-    position:relative
-}
-#absolute-2 { 
-    position:absolute;
-    top: 20px; 
-    right: 20px; 
-    width: 20px; 
-    height:20px; 
-    background:red;
-}</code></pre> 
-            </div>
+            <h3>Logique</h3>
+            <p>
+                Il est souvent intéressant de comparer des valeurs. Les opérateurs logiques sont là pour ça ; ils renvoient une valeur de type <code>boolean</code> : <code>true</code> ou <code>false</code>.                
+            </p>
+            <p>
+               Pour tester si deux valeurs sont égales, on utilise l’opérateur <code>===</code> 
+               <pre class="langage-js"><code>12 === 12;
+// true
+'12' === 12;
+// false 
+// on ne peut pas comparer une chaîne de caractères (fut-elle composée de chiffres) et un nombre.</code></pre>
+            </p>
+            <p>
+               Pour tester si deux valeurs <strong>ne sont pas </strong> égales, on utilise l’opérateur <code>!==</code> 
+               <pre class="langage-js"><code>12 !== 12;
+// false
+12 !== 13;
+// true</code></pre>
+            </p>
+            <p>
+                On peut également déterminer si une valeur est plus grande (<code>&gt;</code>), ou plus petite (<code>&lt;</code>) qu’une autre :
+                <pre class="langage-js"><code>12 &gt; 13;
+// false
+11 &lt; 12;
+// true
+12 &gt; 12;
+// false  ; les opérateurs &gt; et &lt; sont stricts, mais il existe &gt;= et &lt;= 
+12 &gt;= 12;
+// true
+12 &lt;= 12;
+// true</code></pre>
+            </p>
+
         </section>
 
-        <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-    <script src="assets/js/esa.js" ></script>
-    <script src="assets/js/scripts.js"></script>
+        <section class="section">
+            <h2 class="section-subtitle">Conditions</h2>
+            <p>
+                La logique est utilisée pour prendre des décisions dans le code, par exemple d’effectuer telle action ou telle autre.
+                Cela requiert l’évaluation d’une condition ; les plus simples d’entre elles étant le <code>if</code> (si…) et le <code>else</code> (sinon…).
+                <pre class="langage-js"><code>var sel = 8, 
+    poivre = 5;
+if (sel > poivre) {
+    // c’est mauvais pour le cœur
+    // seul le code à l’intérieur de ces premières accolades sera exécuté puisque sel > poivre est true
+} else {
+    // le code à l’intérieur de ces derrnières accolades ne pourra être exécuté que si la valeur de poivre change
+}</code></pre>
+            </p>
+            <p>
+                Attention à la syntaxe : le mot clé <code>if</code> ou <code>else</code>, les parenthèses, les accolades…
+            </p>
+            <h2 class="section-subtitle">Boucles</h2>
+            <p>
+                Les boucles permettent de répéter la même instruction de code plusieurs fois, sans avoir à le ré-écrire.
+            </p>
+            <p>
+                Le mot-clé <code>while</code> permet de faire une boucle dans laquelle on doit modifier la valeur évaluée:
+                <pre class="langage-js"><code>var i = 1;
+while (i &lt; 10) {
+    console.log(i);
+    i = i + 1;
+}
+// i vaut maintenant 10</code></pre>
+            </p>
+            <p>
+                Le mot-clé <code>for</code> est la manière la plus courante de faire des boucles. Mais là où <code>while</code> ne prend qu’un seul paramètre (la condition à évaluer), <code>for</code> en demande 3 : une variable initiale, une condition et une expression finale, séparées par des <code>;</code>
+                <pre class="langage-js"><code>for ( var i = 0; i &lt; 10; i++) {
+    // au départ, on crée la variable i, en l’initialisant à 0
+    // on vérifie que i est inférieur à 10
+    // on "incrémente" la variable i (= on lui ajoute 1)
+    console.log(i);
+}
+// i vaut maintenant 10</code></pre>
+            </p>
+            <p><code>i++</code> est equivalent à <code>i = i + 1</code>.</p>
 
+            <h2 class="section-subtitle">Focntions</h2>
+            <p>
+                Les fonction sont les “verbes” du javascript ; elles permettent de <strong>faire des choses</strong>. Il faut tout d’abord les déclarer, grâce au mot-clé <code>function</code>, suivi de parenthèses (qui permettront de transmettre des paramètres à la fonction) et d’accolades (qui contiennent le code à exétuter).
+                Puis, une fois délarée, on peut l’invoquer.
+                <pre class="langage-js"><code>var dis_bonjour = function(){
+    alert ("Hello !");
+}
+// la fonction est délarée sous le nom dis_bonjour
 
+dis_bonjour();
+// elle est maintenant invoquée, exécutée</code></pre>
+            </p>
+            <p>
+                Une fonction peut prendre un ou plusieurs paramètres 
+                <pre class="langage-js"><code>var dis_bonjour = function(a_qui){
+    alert ("Bonjour " + a_qui + " !");
+}
+
+dis_bonjour('monsieur');</code></pre>
+            <pre class="langage-js"><code>var dis_bonjour = function(a_qui, sur_quel_ton){
+    if (sur_quel_ton == "reverencieux") {
+        alert ("Mes cordiales salutations, " + a_qui + " !");
+    } else if (sur_quel_ton == "familier") {
+        alert ("Salut " + a_qui + " !");
+    } else {
+        alert ("Yo " + a_qui + " !");
+    }
+}
+
+dis_bonjour('monsieur', 'reverencieux');
+dis_bonjour('monsieur', 'familier');
+dis_bonjour('monsieur');</code></pre>
+            </p>
+            <p>
+                Une fonction, plutôt que faire quelque chose, peut également renvoyer une valeur, grâce au mot-clé <code>return</code>.
+                <pre class="langage-js"><code>var ajoute = function (a, b) {
+    return a + b;
+}
+// déclarée
+
+ajoute(1,3);
+// invoquée, retourne 4, si mes calculs sont bons</code></pre>
+            </p>
+            <p class="exercice">
+                <a href="exemples/03/">03</a>
+            </p>
+
+            <h3>Objets</h3>
+            <p>
+                Dans javascript, les “objets” sont comme ceux de la vraie vie. Ils ont des propriétés et des capacités : 
+                Un chat a une couleur, cette couleur peut être noir, ou blanc, ou bleu mais c’est plus rare.<br>
+                Il peut miauler, courir, sauter et (<a href="http://www.gifbin.com/bin/20052777.gif">parfois</a>) danser comme Travolta.
+            </p>
+            <p>
+                <pre class="langage-js"><code>var chat = {
+    couleur: "noir",
+    age: 9,
+    miaule: function () { alert("Miiaaaaww…"); }
+}</code></pre>
+            </p>
+            <p>
+                On peut ensuite accéder à ses propriétés grace à la syntaxe à point :
+                <pre class="langage-js"><code>chat.couleur;
+// "noir"
+chat.age;
+// 9
+chat.miaule();
+// les parenthèses sont nécessaires pour invoquer la fonction (qui dans le cas d’un objet prend le nom de méthode)</code></pre>
+            </p>
+            <p>
+                On peut réassigner une propriété :
+                <pre class="langage-js"><code>chat.couleur = 'rouge';</code></pre>
+                Ou en ajouter “à la volée” :
+                <pre class="langage-js"><code>chat.vies = 9;</code></pre>
+                Ou lui attribuer une nouvelle méthode :
+                <pre class="langage-js"><code>chat.danse = function(){ document.location = "http://www.gifbin.com/bin/20052777.gif"; };
+chat.danse();</code></pre>
+            </p>
+            <h3>Tableaux</h3>
+            <p>
+                Les tableaux, ou <code>Array</code>, sont des listes pouvant contenir tous types de données, y compris d’autres tableaux.
+            </p>
+            <p>
+                Chaque élément d’un tableau est accessible via son <strong>index</strong>, qui représente sa position (son ordre) dans le tableau.
+                Le premier élément d’un tableau a l’index <strong>0</strong>;
+                <pre class="langage-js"><code>var un_tableau_vide = [];
+var choses_a_faire = ['Manger', 'Dormir', 'Prendre des vacances'];
+choses_a_faire[1];
+// 'Dormir'</code></pre>                
+            </p>
+            <p>
+                Il est possible de réassigner une valeur :
+                <pre class="langage-js"><code>var choses_a_faire = ['Manger', 'Dormir', 'Prendre des vacances'];
+choses_a_faire[2] = "Travailler";
+choses_a_faire;
+// ['Manger', 'Dormir', 'Travailler']</code></pre>        
+            </p>
+            <p>
+                On peut connaitre la longueur d’une liste (le nombre d’éléments qu’elle contient) en appelant la propriété <code>length</code>
+                <pre class="langage-js"><code>var choses_a_faire = ['Manger', 'Dormir', 'Travailler'];
+choses_a_faire.length;
+// 3</code></pre>     
+            </p>
+            <p>
+                On peut ajouter ou supprimer des éléments en utilisant les méthodes <code>push</code> et <code>pop</code> :
+                <pre class="langage-js"><code>var choses_a_faire = ['Manger', 'Dormir', 'Travailler'];
+choses_a_faire.push('Coder');
+choses_a_faire;
+// ['Manger', 'Dormir', 'Travailler', 'Coder']
+choses_a_faire.pop();
+// ['Manger', 'Dormir', 'Travailler']
+</code></pre>       
+            </p>
+            <p class="exercice"><a href="exemples/04/">04</a></p>
+        </section>
+
+        <section class="section">
+            <h1 class="section-title">jQuery</h1>
+            <h2 class="section-subtitle">Le DOM</h2>
+            <p>
+                Le DOM, ou <i>Document Object Model</i> permet de manipuler la structure et le style d’une page HTML. Il représente la manière dont le navigateur voit la page HTML, et permet de la modifier avec JavaScript.
+            </p>
+            <p>
+                Le DOM est une structure constituée comme un arbre, avec ses branches et ses rameaux.<br> Il existe un élément racine (<code>&lt;html&gt;</code>), qui a deux branches (<code>&lt;head&gt;</code> et <code>&lt;body&gt;</code>). On évoque ces relations entre branches et rameaux par la métaphore des parents et des enfants : <code>&lt;body&gt;</code> est un enfant de <code>&lt;html&gt;</code>
+            </p>
+            <p>
+                Au cours de sa vie, Javascript a été implémenté de manières très différentes selon les constructeurs (Netscape <i>vs</i> Microsoft). Ses différences de fonctionnement d’un navigateur à l’autre, d’une version d’un navigateur à l’autre, ont conduit des développeurs à créer des librairies capables d’harmoniser le comportement sur tous les navigateurs. C’est le cas de <a href="http://jquery.com">jQuery</a>, mais aussi de Mootools, Prototype, Zepto…
+            </p>
+            <p>
+                La suite de cette introduction utilisera extensivement le framework jQuery ; mais il est capital de comprendre que jQuery, développé en javascript, <strong>est</strong> du javascript.
+                jQuery nous servira à manipuler des variables, des objets, des tableaux, etc. et à interagir avec le DOM.
+            </p>
+        </section>
+
+        <section class="section">
+            <h1 class="section-title">Random</h1>
+            <h2 class="section-subtitle">Aléatoire</h2>
+            <p>
+                <pre class="langage-js"><code>Math.random();
+// retourne un nombre décimal entre 0 et 1
+
+Math.random() * 4; 
+// retourne un nombre décimal entre 0 et 4 ; par ex. : 0.802936547
+Math.random() * 150 ;
+// retourne un nombre décimal entre 0 et 150 ; par ex. : 127.365478029
+Math.floor(Math.random() * 150) ;
+// retourne un nombre entier (arrondi) entre 0 et 150 ; par ex. : 127
+
+var positif_ou_negatif = function(){
+    if(Math.random() > 0.5){
+        return -1;
+    } else { 
+        return 1 
+    }
+}
+Math.random() * 150 * positif_ou_negatif();
+// retourne un nombre décimal entre -150 et 150
+</code></pre>       
+            </p>            
+            <h2 class="section-subtitle">Contrainte</h2>
+            <p>
+                <pre class="langage-js"><code>Math.floor(Math.random() * 4) * 100 + 200;
+// retourne 200, 300, 400, 500 ou 600
+
+Math.round(Math.random() * 4) * 100 + 200;
+// retourne 200, 300, 400, 500 ou 600
+
+var couleurs = ["#FF0000", "#FF00FF", "#00FF00", "#0000FF"]
+var quel_index = Math.floor(Math.random() * couleurs.length);
+// retourne 0, 1, 2 ou 3
+couleurs[quel_index];
+// retourne du rouge, du magenta, du vert, ou du bleu
+</code></pre>       
+            </p>            
+        </section>
+
+        
+        <script src="assets/js/esa.js" ></script>
+        <script src="assets/js/scripts.js"></script>
+        <script src="assets/js/jquery.js"></script>
+
+        <script type="text/javascript">
+        $(function(){
+
+            // initialisation
+            var $ramdam = $('#ramdam');
+            var text = $ramdam.text();
+            var letters = text.split('');
+            
+            // suppression du contenu de <div id='ramdam'>
+            $ramdam.empty();
+
+            // crée des <span> à partir de chaque lettre du texte
+            for (var i = 0; i < letters.length; i++) {
+                var $span = $('<span>' + letters[i] + '</span>');
+                $ramdam.append($span);
+                if(letters[i]=='/') {
+                    $ramdam.append('<br>');
+                }
+                // mesure la position naturelle de chaque lettre et l’enregitre dans un attribut pour pouvoir la retrouver plus tard
+                $span.attr('data--original-left', $span.position().left)
+            };
+
+            // function qui "met en désordre" les lettres
+            ramdamize = function(container){
+                $(container).find('span').each(function(i){
+                    var $span = $(this);
+                    // récupère la valeur left naturelle
+                    var original_left = $span.attr('data--original-left');
+                    // crée une valeur left aléatoire
+                    // qui permette de garder le span à l’intérieur de <div id='ramdam'>
+                    var new_left = Math.round(Math.random() * ($ramdam.width() - $span.width())) - original_left;
+                    $span.css({
+                        'left': new_left,
+                        'transition': 'left 200ms ease-out'
+                    })
+                    // rend visible et anime les lettres sequentiellement
+                    var s = setTimeout(function(){
+                        $span.addClass('brbrbr');
+                    }, 100 * i)
+                })
+            }
+
+            // à intervale régulier, on remet en désordre
+            var interval = setInterval(function(){
+                ramdamize($ramdam);
+            }, 2000)
+
+            // itialisation
+            ramdamize($ramdam);
+            
+            // interactivité
+            $ramdam.on('mouseenter', function(){
+                $(this).find('span').css('left', 0)
+                clearInterval(interval);
+            }).on('mouseleave', function(){
+                ramdamize(this);
+                interval = setInterval(ramdamize, 2000, $ramdam);
+            })
+        })
+            
+        </script>
     </body>
 </html>
