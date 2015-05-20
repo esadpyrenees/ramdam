@@ -7,10 +7,34 @@ body {
     color: #333;
     font-family: 'Roboto Condensed', sans-serif;
     }
+@font-face{
+	font-family: 'input';
+	src:url(Input-Regular.ttf?frrf) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face{
+	font-family: 'input';
+	src:url(Input-Italic.ttf?frrf) format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+@font-face{
+	font-family: 'input';
+	src:url(Input-Bold.ttf?frrf) format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face{
+	font-family: 'input';
+	src:url(Input-BoldItalic.ttf?frrf) format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
 
 a { color:#000;}    
 
-h1, h2, h3, h4 { margin: 1em 0 .5em; }
+h1, h2, h3, h4 { margin: 1.5em 0 .5em; }
 ul, ol { margin: 0; list-style-type: none}
 
 
@@ -43,9 +67,13 @@ h4 + p { margin-top: 0}
 
 section ul { margin-bottom: 2em}
 
-p,
-blockquote, ol, ul { max-width: 650px}
+p, 
+blockquote, ol, ul { max-width: 650px; margin: .5em 0}
 
+
+
+pre { margin: .5em 0; font-size: 13px}
+pre, code { font-family: 'input'}
 pre code { overflow-x: auto;}
 p code {
 	background: #eee;
@@ -54,7 +82,13 @@ p code {
     vertical-align: middle;
 	}
 
-
+p > code { font-size: 13px; line-height: 1.8}
+.exemple:before,
+.exercice:before { content: "➡ "; position: absolute;}
+.exemple a,
+.exercice a { padding: 0 0 0 30px; font-weight: bold; display: block;}
+.exemple a:before { content: 'Exemple '; text-transform: uppercase;} 
+.exercice a:before { content: 'Exercice '; text-transform: uppercase;} 
 
 .clearfix:after {
   content:"";
