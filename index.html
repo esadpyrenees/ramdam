@@ -21,7 +21,7 @@
         <script>document.esa_id_options = { 'family' : '"Roboto Condensed",sans-serif,sans-serif', 'size' : '20px', 'color': 'rgba(0,0,0,0)'}</script>
 
         <style type="text/css">
-        #ramdam { position: relative; }
+        #ramdam { position: relative; overflow: hidden;}
         #ramdam span { 
             position: relative;
             font-size: 200px; font-weight: bold; color: black; line-height: .8;
@@ -56,10 +56,10 @@
             <h1 class="section-title">ramdam / random</h1>
             <h2 class="section-subtitle">Préambule</h2>
             <p>
-                Le code du temps fort est accessible ici : <a href="https://github.com/jbidoret/ramdam/">https://github.com/jbidoret/ramdam/</a>
+                Le code du temps fort est accessible ici : <a href="https://github.com/jbidoret/ramdam/archive/master.zip">https://github.com/jbidoret/ramdam/</a>
             </p>
             <p>
-                Pour le télécharger en gardant la capacité de le modifier <i>et</i> de le mettre à jour, ouvrir le Terminal (/Applications/Utilitaires/Terminal.app), puis avec <a href="https://git-scm.com/book/fr/v1/D%C3%A9marrage-rapide"><strong>git</strong></a>, clonez le dossier contenant le code sur votre ordinateur :
+                Pour le télécharger en gardant la capacité de le modifier <i>et</i> de le mettre à jour, il est possible d’utiliser <a href="https://git-scm.com/book/fr/v1/D%C3%A9marrage-rapide"><strong>git</strong></a>, s’il est installé sur votre ordinateur. Ouvrir le Terminal (/Applications/Utilitaires/Terminal.app), clonez le dossier contenant le code sur votre ordinateur :
             </p>
             <p>
                 <pre class="langage-bash"><code># cd pour *change directory* : change le dossier de travail du terminal vers '~/Desktop' (le Bureau de l'utilisateur courant) + [Entrée]
@@ -74,8 +74,8 @@ cd ramdam
 # affiche dans le Finder le dossier téléchargé
 open . </code></pre>
             </p>
-            <p>
-                Sur Windows, on peut exécuter git en installant <a href="http://msysgit.github.io/">msysgit</a>.
+            <p class="note">
+                Installer le système de gestion de versions <strong>git</strong> peut se faire de multiples manières selon votre plateforme (mac, windows ou linux). <a href="http://git-scm.com/downloads">Voir ici</a>. (Ceci n’est pas indispensable à la poursuite du temps fort.)
             </p>
             <p>
                 Pour mettre à jour les fichiers, dans le Terminal, toujours dans le même dossier, taper : <code langage="shell">git pull</code>
