@@ -144,7 +144,7 @@ nom = valeur;</code></pre>
                 Dans javascript, une variable est dite "typée dynamiquement". On ne sait pas à priori si elle contient un nombre, une liste (ou <i>tableau</i>), une fonction, un “objet” ou autre chose…
             </p>
             <p>
-                Les valeurs simples sont : <code>number</code>, un nombre ; <code>string</code>, une chaîne de caractères ; un <code>boolean</code>, sorte d’interrupteur qui n’a que deux valeurs possibles (<code class="langage-js">true</code> ou <code class="langage-js">false</code>). On trouve également <code>null</code> et <code>undefined</code>.
+                Les valeurs simples sont : <code>number</code>, un nombre ; <code>string</code>, une chaîne de caractères ; un <code>boolean</code>, sorte d’interrupteur qui n’a que deux valeurs possibles (<code class="langage-js">true</code> ou <code class="langage-js">false</code>). On trouve également les valeurs <code>null</code>(aucune valeur) et <code>undefined</code> (valeur non définie).
                 <pre class="langage-js"><code>var ma_chaine = "Hifi"; 
 // Une chaîne de caractères se place entre guillemets (droits, doubles ou simples)
 var mon_nombre = 20; 
@@ -155,7 +155,7 @@ var javascript_cest_facile = true;
 // n’est-ce-pas ?</code></pre>
             </p>
             <p>
-                Des valeurs plus complexes existent : ce sont les mystérieux <strong>objets</strong>, dont on parlera plus tard #oupas ;  les <strong>tableaux</strong>, qui servent à faire des listes ; et les <strong>fonctions</strong>, qui servent à …faire des trucs, et dont on parlera vraiment plus tard.
+                Des valeurs plus complexes existent : ce sont les mystérieux <strong>objets</strong>, dont on parlera plus tard #oupas ; les <strong>tableaux</strong>, qui servent à faire des listes ; et les <strong>fonctions</strong>, qui servent à …faire des trucs, et dont on parlera vraiment plus tard.
                 <pre class="langage-js"><code>var mon_objet = {}; 
 var ma_liste = ['pierre', 'papier', 'ciseaux'];
 var ma_fonction = function(){
@@ -296,6 +296,8 @@ dis_bonjour();
 
 dis_bonjour('monsieur');</code></pre>
             <pre class="langage-js"><code>var dis_bonjour = function(a_qui, sur_quel_ton){
+    // on évalue la variable sur_quel_ton (deuxième variable passée en paramètres)
+    // et on effectue une action différente selon sa valeur
     if (sur_quel_ton == "reverencieux") {
         alert ("Mes cordiales salutations, " + a_qui + " !");
     } else if (sur_quel_ton == "familier") {
