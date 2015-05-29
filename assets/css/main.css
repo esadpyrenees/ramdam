@@ -4,6 +4,7 @@
 body {
     padding: 60px;
     font-size: 100%;
+    line-height: 1.4;
     color: #333;
     font-family: 'Roboto Condensed', sans-serif;
     }
@@ -36,11 +37,13 @@ a { color:#000;}
 
 h1, h2, h3, h4 { margin: 1.5em 0 .5em; }
 ul, ol { margin: 0; list-style-type: none}
-
+.list { margin-left: 0; padding-left: 1.5em;}
+.list li {  }
+.list li:before { content: "— "; margin-left: -1.5em; width: 1.5em; display: inline-block;}
 
 h1#atelier { position:fixed; font-size: 14rem; margin: 0; color: rgb(255,255,100); line-height: .8}
 h1 { font-size: 1.4rem}
-h2 { font-size: 1.2rem}
+h2 { font-size: 1.4rem}
 h3 { font-size: 1.2rem; border-left: 10px solid black; padding-left: 1em}
 h4 { font-size: 1rem }
 section.section { position: relative; padding-left: 50px; margin-bottom: 4em}
@@ -49,8 +52,8 @@ h1.section-title{
 	position: absolute;
 	color: black;
 	left: 0;
-	
-	padding-right: .85em;
+	letter-spacing: 0.05em;
+	padding-right: 0em;
 	text-transform: uppercase;
 	-webkit-transform-origin:0 0;
 	-webkit-transform:rotate(270deg) translateX(-100%);
@@ -59,7 +62,7 @@ h1.section-title{
 	transform-origin:0 0;
 	transform:rotate(270deg) translateX(-100%);
 	}
-h2.section-subtitle { display: inline-block; background: #000; color: #fff; padding: 1px 6px; margin-top: 2em;}
+h2.section-subtitle { display: inline-block; background: #000; color: #fff; font-weight: 400; padding: 1px 6px; margin-top: 1.5em; letter-spacing: 0.05em;}
 h2.section-subtitle + p { margin: 0em 0 .5em }
 
 h3 + p,
@@ -76,13 +79,13 @@ pre { margin: .5em 0; font-size: 13px}
 pre, code { font-family: 'input'}
 pre code { overflow-x: auto;}
 p code {
-	background: #eee;
+	color: #0B8EB1;
     display: inline-block;
     line-height: 1;
-    vertical-align: middle;
+    
 	}
 
-p > code { font-size: 13px; line-height: 1.8}
+p > code { }
 .exemple:before,
 .exercice:before { content: "➡ "; position: absolute;}
 .exemple a,
@@ -95,6 +98,40 @@ p > code { font-size: 13px; line-height: 1.8}
   display:table;
   clear:both;
 }
+
+#menulink { position: fixed; top: 10px; left: 10px; 
+	background: #000;
+	color: white;
+	width: 32px;
+	height: 32px;
+	line-height: 28px;
+	text-align: center;
+	font-size: 20px;
+	border-radius: 16px;
+	z-index: 200;
+	cursor: pointer;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	}
+#wrapper, #toc { transition:all 250ms ease-out;}	
+.open-toc #wrapper { padding-left: 150px}
+#toc { position: fixed; top: 0; left: -200px; bottom: 0; background: #000; 
+	border-right: 1px solid; overflow: auto; padding: 3em 1em 2em ; width: 200px}
+.open-toc #toc { left: 0; }
+#toc a { display: block; text-decoration: none; color: #ccc}
+#toc a:hover { color: white}
+#toc > :last-child { margin-bottom: 2em}
+#toc .toc-depth-1 { font-weight: bold; margin-top: .5em; color: white}
+#toc .toc-depth-2 { padding-left: 1em; margin-top: .5em}
+#toc .toc-depth-3 { padding-left: 2em; }
+#toc .toc-depth-2 + .toc-depth-2 { margin-top: 0}
+
+
+
 
 
 /* el highlighting */

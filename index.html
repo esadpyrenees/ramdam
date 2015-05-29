@@ -46,14 +46,15 @@
 
         </style>
     </head>
-    <body>
+    <body >
 
         <section >
             <div id="ramdam" >RANDOM/RAMDAM</div>                
         </section>
         
+    <div id="wrapper">
         <section class="section">
-            <h1 class="section-title">ramdam / random</h1>
+            <h1 class="section-title">Ramdam</h1>
             <h2 class="section-subtitle">Préambule</h2>
             <p>
                 Le code du temps fort est accessible ici : <a href="https://github.com/jbidoret/ramdam/archive/master.zip">https://github.com/jbidoret/ramdam/</a>
@@ -84,9 +85,9 @@ open . </code></pre>
             <h2 class="section-subtitle">
                 Ressources
             </h2>
-            <ul>
-                <li>Une connaissance de base du HTML et du CSS est requise. Les ressources de l’ÉSA sont accessibles ici : <br> <strong><a href="http://ateliers.esapyrenees.fr/web">ateliers.esapyrenees.fr/web</a></strong></li>
-                <li>Le site Mozilla developper network est une ressource extrêmement complète sur javascript :<br> <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">Mozilla developper network</a></strong></li>
+            <ul class="list">
+                <li>Une connaissance de base du HTML et du CSS est requise. Les ressources de l’ÉSA sont accessibles ici :  <strong><a href="http://ateliers.esapyrenees.fr/web">ateliers.esapyrenees.fr/web</a></strong></li>
+                <li>Le site Mozilla developper network est une ressource extrêmement complète sur javascript : <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">Mozilla developper network</a></strong></li>
                 <li>La documentaton de la librairie jQuery est elle aussi très complète et abondamment illustrée par de nombreux exemples : <strong><a href="http://api.jquery.com/">api.jquery.com</a></strong></li>
             </ul>
         </section>
@@ -98,7 +99,7 @@ open . </code></pre>
             <h2 class="section-subtitle">
                 Introduction
             </h2>
-            <h3>Inclure un script dans une page</h3>
+            <h3>Premiers pas</h3>
             <p>
                 Le code javascript peut être écrit directement à l’intérieur des balises <code>&lt;script&gt;</code> d’une page HTML, ou être inclus via un fichier externe.
                 Un navigateur lit le contenu d’un script de bas en haut (sauf si on lui demande de faire autrement).                
@@ -133,7 +134,10 @@ open . </code></pre>
             
             <h2 class="section-subtitle">Variables</h2>
             <p>
-                Une <strong>variable</strong> est composée d’un <strong>nom</strong> et d’une <strong>valeur</strong>. Pour la déclarer, il faut utiliser le mot clé <code>var</code>. Pour lui attribuer une valeur, il faut utiliser le signe <code>=</code> ; et terminer la ligne par un <code>;</code> :
+                Une variable est un espace de stockage, un nom symbolique, pour stocker une valeur.
+            </p>
+            <p>
+                Une <strong>variable</strong> est composée d’un <strong>nom</strong> (ou identifiant) et d’une <strong>valeur</strong>. Pour la déclarer, il faut utiliser le mot clé <code>var</code>. Pour lui attribuer une valeur, il faut utiliser le signe <code>=</code> ; et terminer la ligne par un <code>;</code> :
                 <pre class="langage-js"><code>var nom = valeur;</code></pre>
                 Une variable peut être <i>déclarée</i>, tout en n’étant pas <i>initialisée</i>. Une fois crée, on peut l’initialiser :
                 <pre class="langage-js"><code>var nom;
@@ -144,7 +148,7 @@ nom = valeur;</code></pre>
                 Dans javascript, une variable est dite "typée dynamiquement". On ne sait pas à priori si elle contient un nombre, une liste (ou <i>tableau</i>), une fonction, un “objet” ou autre chose…
             </p>
             <p>
-                Les valeurs simples sont : <code>number</code>, un nombre ; <code>string</code>, une chaîne de caractères ; un <code>boolean</code>, sorte d’interrupteur qui n’a que deux valeurs possibles (<code class="langage-js">true</code> ou <code class="langage-js">false</code>). On trouve également les valeurs <code>null</code>(aucune valeur) et <code>undefined</code> (valeur non définie).
+                Les valeurs simples sont : <code>number</code>, un nombre, qui peut être entier ou flottant ; <code>string</code>, une chaîne de caractères ; un <code>boolean</code>, sorte d’interrupteur qui n’a que deux valeurs possibles (<code class="langage-js">true</code> ou <code class="langage-js">false</code>). On trouve également les valeurs <code>null</code>(aucune valeur) et <code>undefined</code> (valeur non définie).
                 <pre class="langage-js"><code>var ma_chaine = "Hifi"; 
 // Une chaîne de caractères se place entre guillemets (droits, doubles ou simples)
 var mon_nombre = 20; 
@@ -173,7 +177,7 @@ var ma_fonction = function(){
 */</code></pre>
             </p>
 
-            <h3>Maths</h3>
+            <h3>Opérations</h3>
             <p>
                 Oui, Javascript peut faire des additions, des divisions, des multiplications, des soustractions et quantité d’autres opérations sur les nombres qui nous seront fort utiles plus tard.
                 <pre class="langage-js"><code>var torchons = 4; 
@@ -199,12 +203,81 @@ console.log( "torchons" * serviettes);
 // affiche NaN, ou Not a Number ; on ne peut pas diviser une chaine de caractères par un nombre</code></pre>
             </p>
 
-            <h3>Logique</h3>
+            <h3>Tableaux</h3>
+            <p>
+                Les tableaux, ou <code>Array</code>, sont des listes pouvant contenir tous types de données, y compris d’autres tableaux.
+            </p>
+            <p>
+                Chaque élément d’un tableau est accessible via son <strong>index</strong>, qui représente sa position (son ordre) dans le tableau.
+                Le premier élément d’un tableau a l’index <strong>0</strong>;
+                <pre class="langage-js"><code>var un_tableau_vide = [];
+var choses_a_faire = ['Manger', 'Dormir', 'Prendre des vacances'];
+choses_a_faire[1];
+// 'Dormir'</code></pre>                
+            </p>
+            <p>
+                Il est possible de réassigner une valeur :
+                <pre class="langage-js"><code>var choses_a_faire = ['Manger', 'Dormir', 'Prendre des vacances'];
+choses_a_faire[2] = "Travailler";
+choses_a_faire;
+// ['Manger', 'Dormir', 'Travailler']</code></pre>        
+            </p>
+            <p>
+                On peut connaitre la longueur d’une liste (le nombre d’éléments qu’elle contient) en appelant la propriété <code>length</code>
+                <pre class="langage-js"><code>var choses_a_faire = ['Manger', 'Dormir', 'Travailler'];
+choses_a_faire.length;
+// 3</code></pre>     
+            </p>
+            <p>
+                On peut ajouter ou supprimer des éléments en utilisant les méthodes <code>push</code> et <code>pop</code> :
+                <pre class="langage-js"><code>var choses_a_faire = ['Manger', 'Dormir', 'Travailler'];
+choses_a_faire.push('Coder');
+choses_a_faire;
+// ['Manger', 'Dormir', 'Travailler', 'Coder']
+choses_a_faire.pop();
+// ['Manger', 'Dormir', 'Travailler']
+</code></pre>       
+            </p>
+            <p class="exercice"><a href="exemples/04/">04</a></p>
+
+            <h3>Objets</h3>
+            <p>
+                Dans javascript, les “objets” sont comme ceux de la vraie vie. Ils ont des propriétés et des capacités : 
+                Un chat a une couleur, cette couleur peut être noir, ou blanc, ou bleu mais c’est plus rare.<br>
+                Il peut miauler, courir, sauter et (<a href="http://www.gifbin.com/bin/20052777.gif">parfois</a>) danser comme Travolta.
+            </p>
+            <p>
+                <pre class="langage-js"><code>var chat = {
+    couleur: "noir",
+    age: 9,
+    miaule: function () { alert("Miiaaaaww…"); }
+}</code></pre>
+            </p>
+            <p>
+                On peut ensuite accéder à ses propriétés grace à la syntaxe à point :
+                <pre class="langage-js"><code>chat.couleur;
+// "noir"
+chat.age;
+// 9
+chat.miaule();
+// les parenthèses sont nécessaires pour invoquer la fonction (qui dans le cas d’un objet prend le nom de méthode)</code></pre>
+            </p>
+            <p>
+                On peut réassigner une propriété :
+                <pre class="langage-js"><code>chat.couleur = 'rouge';</code></pre>
+                Ou en ajouter “à la volée” :
+                <pre class="langage-js"><code>chat.vies = 9;</code></pre>
+                Ou lui attribuer une nouvelle méthode :
+                <pre class="langage-js"><code>chat.danse = function(){ document.location = "http://www.gifbin.com/bin/20052777.gif"; };
+chat.danse();</code></pre>
+            </p>
+
+            <h2 class="section-subtitle">Logique</h2>
             <p>
                 Il est souvent intéressant de comparer des valeurs. Les opérateurs logiques sont là pour ça ; ils renvoient une valeur de type <code>boolean</code> : <code>true</code> ou <code>false</code>.                
             </p>
             <p>
-               Pour tester si deux valeurs sont égales, on utilise l’opérateur <code>===</code> 
+               Pour tester si deux valeurs sont égales, on utilise les opérateurs <code>===</code> ou <code>==</code> 
                <pre class="langage-js"><code>12 === 12;
 // true
 '12' === 12;
@@ -212,7 +285,7 @@ console.log( "torchons" * serviettes);
 // on ne peut pas comparer une chaîne de caractères (fut-elle composée de chiffres) et un nombre.</code></pre>
             </p>
             <p>
-               Pour tester si deux valeurs <strong>ne sont pas </strong> égales, on utilise l’opérateur <code>!==</code> 
+               Pour tester si deux valeurs <strong>ne sont pas </strong> égales, on utilise l’opérateur <code>!==</code>  ou <code>!=</code> 
                <pre class="langage-js"><code>12 !== 12;
 // false
 12 !== 13;
@@ -272,7 +345,7 @@ while (i &lt; 10) {
     // on "incrémente" la variable i (= on lui ajoute 1)
     console.log(i);
 }
-// i ne vaut rien du tout</code></pre>
+// i ne vaut rien du tout, sa “portée“ (scope) est restreinte à l’intérieur de la boucle</code></pre>
             </p>
             <p><code>i++</code> est equivalent à <code>i = i + 1</code>.</p>
 
@@ -325,73 +398,7 @@ ajoute(1,3);
                 <a href="exemples/03/">03</a>
             </p>
 
-            <h3>Objets</h3>
-            <p>
-                Dans javascript, les “objets” sont comme ceux de la vraie vie. Ils ont des propriétés et des capacités : 
-                Un chat a une couleur, cette couleur peut être noir, ou blanc, ou bleu mais c’est plus rare.<br>
-                Il peut miauler, courir, sauter et (<a href="http://www.gifbin.com/bin/20052777.gif">parfois</a>) danser comme Travolta.
-            </p>
-            <p>
-                <pre class="langage-js"><code>var chat = {
-    couleur: "noir",
-    age: 9,
-    miaule: function () { alert("Miiaaaaww…"); }
-}</code></pre>
-            </p>
-            <p>
-                On peut ensuite accéder à ses propriétés grace à la syntaxe à point :
-                <pre class="langage-js"><code>chat.couleur;
-// "noir"
-chat.age;
-// 9
-chat.miaule();
-// les parenthèses sont nécessaires pour invoquer la fonction (qui dans le cas d’un objet prend le nom de méthode)</code></pre>
-            </p>
-            <p>
-                On peut réassigner une propriété :
-                <pre class="langage-js"><code>chat.couleur = 'rouge';</code></pre>
-                Ou en ajouter “à la volée” :
-                <pre class="langage-js"><code>chat.vies = 9;</code></pre>
-                Ou lui attribuer une nouvelle méthode :
-                <pre class="langage-js"><code>chat.danse = function(){ document.location = "http://www.gifbin.com/bin/20052777.gif"; };
-chat.danse();</code></pre>
-            </p>
-            <h3>Tableaux</h3>
-            <p>
-                Les tableaux, ou <code>Array</code>, sont des listes pouvant contenir tous types de données, y compris d’autres tableaux.
-            </p>
-            <p>
-                Chaque élément d’un tableau est accessible via son <strong>index</strong>, qui représente sa position (son ordre) dans le tableau.
-                Le premier élément d’un tableau a l’index <strong>0</strong>;
-                <pre class="langage-js"><code>var un_tableau_vide = [];
-var choses_a_faire = ['Manger', 'Dormir', 'Prendre des vacances'];
-choses_a_faire[1];
-// 'Dormir'</code></pre>                
-            </p>
-            <p>
-                Il est possible de réassigner une valeur :
-                <pre class="langage-js"><code>var choses_a_faire = ['Manger', 'Dormir', 'Prendre des vacances'];
-choses_a_faire[2] = "Travailler";
-choses_a_faire;
-// ['Manger', 'Dormir', 'Travailler']</code></pre>        
-            </p>
-            <p>
-                On peut connaitre la longueur d’une liste (le nombre d’éléments qu’elle contient) en appelant la propriété <code>length</code>
-                <pre class="langage-js"><code>var choses_a_faire = ['Manger', 'Dormir', 'Travailler'];
-choses_a_faire.length;
-// 3</code></pre>     
-            </p>
-            <p>
-                On peut ajouter ou supprimer des éléments en utilisant les méthodes <code>push</code> et <code>pop</code> :
-                <pre class="langage-js"><code>var choses_a_faire = ['Manger', 'Dormir', 'Travailler'];
-choses_a_faire.push('Coder');
-choses_a_faire;
-// ['Manger', 'Dormir', 'Travailler', 'Coder']
-choses_a_faire.pop();
-// ['Manger', 'Dormir', 'Travailler']
-</code></pre>       
-            </p>
-            <p class="exercice"><a href="exemples/04/">04</a></p>
+            
         </section>
 
         <section class="section">
@@ -407,7 +414,7 @@ choses_a_faire.pop();
                 Au cours de sa vie, Javascript a été implémenté de manières très différentes selon les constructeurs (Netscape <i>vs</i> Microsoft). Ses différences de fonctionnement d’un navigateur à l’autre, d’une version d’un navigateur à l’autre, ont conduit des développeurs à créer des librairies capables d’harmoniser le comportement sur tous les navigateurs. C’est le cas de <a href="http://jquery.com">jQuery</a>, mais aussi de Mootools, Prototype, Zepto…
             </p>
             <p>
-                La suite de cette introduction utilisera extensivement le framework jQuery ; mais il est capital de comprendre que jQuery, développé en javascript, <strong>est</strong> du javascript.
+                La suite de cette introduction utilisera intensivement le framework jQuery ; mais il est capital de comprendre que jQuery, développé en javascript, <strong>est</strong> du javascript.
                 jQuery nous servira à manipuler des variables, des objets, des tableaux, etc. et à interagir avec le DOM.
             </p>
             <h3>Events et callbacks</h3>
@@ -421,7 +428,9 @@ bouton.addEventListener('click', faisQuelqueChose);</code></pre>
             </p>
             <p>
                 Avec jQuery, les deux lignes ci-dessus peuvent s’écrire :
+            </p>
                 <pre class="langage-js"><code>$('#bouton').on('click', faisQuelqueChose);</code></pre>
+            <p>
                 jQuery possède une fonction maîtresse au nom très court : <code>$</code>. Cette fonction très puissante permet ici à jQuery de sélectionner l’élément dont l’<code>id</code> est “bouton”, de lui attacher un écouteur sur l’événement <code>click</code>, et d’exécuter la fonction <code>faisQuelqueChose</code> quand on clique dessus.<br>
                 NB: <code>id="machin"</code> en HTML se traduit <code>#machin</code> en css.
             </p>
@@ -439,11 +448,13 @@ bouton.addEventListener('click', faisQuelqueChose);</code></pre>
                 <pre class="langage-js"><code>$('#grosbouton').on('click', function(){
     $(this).css('color', 'red');
 });</code></pre>
+            </p>
+            <p>
                 Ici, on a introduit deux notions importantes : le mot clé <strong><code>this</code></strong> et une <strong>fonction anonyme</strong>. Le mot <code>this</code> désigne l’élément sur lequel on a cliqué ; la fonction anonyme ne sert pas ailleurs dans notre code ; on peut donc la déclarer au même instant qu’on l’exécute.
             </p>
             <h4>Getters et Setters</h4>
             <p>
-                Ci dessus, nous avons utilisé les méthodes <code>.css</code> et <code>.height</code> pour <strong>attribuer</strong> des valeurs css et une hauteur à notre bouton. Ces méthodes peuvent également être utilisées pour <strong>lire</strong> ces valeurs css et de hauteur. Elles sont alors invoquées sans l’argument d’attribution :
+                Ci dessus, nous avons utilisé les méthodes <code>.css</code> et <code>.height</code> pour <strong>attribuer</strong> des valeurs css et une hauteur à notre bouton. Ces méthodes peuvent également être utilisées pour <strong>lire</strong> ces valeurs css et de hauteur. Elles sont alors invoquées sans l’argument d’affectation :
                 <pre class="langage-js"><code>$('#grosbouton').css('font-size');
 // retourne '30px'
 $('#grosbouton').height();
@@ -498,10 +509,16 @@ couleurs[quel_index];
             </p>            
         </section>
 
+        <div id="toc"></div>
+
+    </div>
         
         <script src="assets/js/esa.js" ></script>
-        <script src="assets/js/scripts.js"></script>
+
         <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/jquery.tableofcontents.min.js" ></script>
+
+        <script src="assets/js/scripts.js"></script>
 
         <script type="text/javascript">
         $(function(){
