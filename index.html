@@ -21,8 +21,8 @@
         <script>document.esa_id_options = { 'family' : '"Roboto Condensed",sans-serif,sans-serif', 'size' : '20px', 'color': 'rgba(0,0,0,0)'}</script>
 
         <style type="text/css">
-        #ramdam { position: relative; overflow: hidden;}
-        #ramdam span { 
+        #randomramdam { position: relative; overflow: hidden;}
+        #randomramdam span { 
             position: relative;
             font-size: 200px; font-weight: bold; color: black; line-height: .8;
             transition:all 200ms ease-out;
@@ -30,7 +30,7 @@
             opacity: 0;
         }
         
-        #ramdam span.brbrbr {
+        #randomramdam span.brbrbr {
             opacity: 1;
             animation: brbrbrbr linear .2s;
             animation-iteration-count: infinite;
@@ -49,10 +49,11 @@
     <body >
 
         <section >
-            <div id="ramdam" >RANDOM/RAMDAM</div>                
+            <div id="randomramdam" >RANDOM/RAMDAM</div>                
         </section>
         
     <div id="wrapper">
+    <!--
         <section class="section">
             <h1 class="section-title">Ramdam</h1>
             <h2 class="section-subtitle">Préambule</h2>
@@ -81,13 +82,16 @@ open . </code></pre>
             <p>
                 Pour mettre à jour les fichiers, dans le Terminal, toujours dans le même dossier, taper : <code langage="shell">git pull</code>
             </p>
-
+            </section>
+            -->
+        <section class="section">
+            <h1 class="section-title">Javascript</h1>
             <h2 class="section-subtitle">
                 Ressources
             </h2>
             <ul class="list">
                 <li>Une connaissance de base du HTML et du CSS est requise. Les ressources de l’ÉSA sont accessibles ici :  <strong><a href="http://ateliers.esapyrenees.fr/web">ateliers.esapyrenees.fr/web</a></strong></li>
-                <li>Le site Mozilla developper network est une ressource extrêmement complète sur javascript : <strong><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">Mozilla developper network</a></strong></li>
+                <li>Le site Mozilla developper network est une ressource extrêmement complète sur javascript : <strong><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide">Mozilla developper network</a></strong></li>
                 <li>La documentaton de la librairie jQuery est elle aussi très complète et abondamment illustrée par de nombreux exemples : <strong><a href="http://api.jquery.com/">api.jquery.com</a></strong></li>
             </ul>
         </section>
@@ -471,10 +475,15 @@ $('#grosbouton').height();
             <h1 class="section-title">Random</h1>
             <h2 class="section-subtitle">Aléatoire</h2>
             <p>
+                La fonction <code>random</code>, accessible via le module <code>Math</code>, permet de générer un nombre aléatoire (dit <a href="http://fr.wikipedia.org/wiki/G%C3%A9n%C3%A9rateur_de_nombres_pseudo-al%C3%A9atoires">pseudo-aléatoire</a>) entre 0 et 1.
+            </p>
                 <pre class="langage-js"><code>Math.random();
 // retourne un nombre décimal entre 0 et 1
-
-Math.random() * 4; 
+</code></pre>      
+            <p>
+                À partir de ce comportement simple, il est possible de générer de très nombreuses valeurs :
+            </p>
+<pre class="langage-js"><code>Math.random() * 4; 
 // retourne un nombre décimal entre 0 et 4 ; par ex. : 0.802936547
 Math.random() * 150 ;
 // retourne un nombre décimal entre 0 et 150 ; par ex. : 127.365478029
@@ -483,6 +492,7 @@ Math.floor(Math.random() * 150) ;
 
 var positif_ou_negatif = function(){
     if(Math.random() > 0.5){
+        // une chance sur deux – à peu près – que la valeur retournée soit supérieure à 0.5
         return -1;
     } else { 
         return 1 
@@ -491,22 +501,55 @@ var positif_ou_negatif = function(){
 Math.random() * 150 * positif_ou_negatif();
 // retourne un nombre décimal entre -150 et 150
 </code></pre>       
+            <p>
+            Pour une plus grande facilité d’utilisation, on peut écrire une petite fonction utilitaire, qui retourne un nombre entre a et b :
             </p>            
+            <pre class="langage-js"><code>function rand(a, b){
+    return Math.random() * (b - a) + a
+}     
+// qu’on peut invoquer ainsi :
+rand(-250, 500);
+// retourne 323.8463423220761 (par exemple)
+
+// ou si l’on veut un nombre entier :
+Math.round(rand(-250, 500));
+// retourne 323 (par exemple)</code></pre>    
             <h2 class="section-subtitle">Contrainte</h2>
             <p>
+                Une fois établie cette possibilité d’un nombre “purement” aléatoire, il est possible de contraindre son utilisation:
+            </p>
                 <pre class="langage-js"><code>Math.floor(Math.random() * 4) * 100 + 200;
-// retourne 200, 300, 400, 500 ou 600
+// retourne 200, 300, 400, ou 500
 
 Math.round(Math.random() * 4) * 100 + 200;
 // retourne 200, 300, 400, 500 ou 600
-
-var couleurs = ["#FF0000", "#FF00FF", "#00FF00", "#0000FF"]
+// la différence vient de l’utilisation de round plutôt que floor :
+// round arrondit à l’entier le plus proche, floor arrondit à l’entier inférieur</code></pre>  
+            <p>
+                Un nombre entier aléatoire peut être utilisé pour sélectionner une valeur dans une liste :
+            </p>
+                <pre class="langage-js"><code>var couleurs = ["#FF0000", "#FF00FF", "#00FF00", "#0000FF"]
 var quel_index = Math.floor(Math.random() * couleurs.length);
 // retourne 0, 1, 2 ou 3
 couleurs[quel_index];
 // retourne du rouge, du magenta, du vert, ou du bleu
 </code></pre>       
+            <p>
+                Pour une couleur “purement” aléatoire, il est également possible d’écrire une petite fonction : 
             </p>            
+<pre class="langage-js"><code>function randint(a, b){
+    return Math.round( Math.random() * (b - a) + a)
+}
+
+function randColor(){  
+    var red = randint(0,255),
+        green = randint(0,255),
+        blue = randint(0,255)
+    return 'rgb('+ red +','+ green +','+ blue +')';
+}</code></pre>
+            <p class="exemple">
+                <a href="exemples/11/">11</a>
+            </p>
         </section>
 
         <div id="toc"></div>
@@ -524,7 +567,7 @@ couleurs[quel_index];
         $(function(){
 
             // initialisation
-            var $ramdam = $('#ramdam');
+            var $ramdam = $('#randomramdam');
             var text = $ramdam.text();
             var letters = text.split('');
             
